@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeaImports.Pna</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ff4081;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    nav a {
+      color: #ff4081;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2em;
+      color: #ff4081;
+      margin-bottom: 20px;
+    }
+    section p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #ddd;
+    }
+    footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #888;
+    }
+    a.boton {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background-color: #ff4081;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    a.boton:hover {
+      background-color: #e91e63;
+    }
+
+    /* Productos */
+    .productos {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .producto {
+      background: #1f1f1f;
+      padding: 15px;
+      border-radius: 8px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+    }
+    .producto img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .producto button {
+      background-color: #ff4081;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .producto button:hover {
+      background-color: #e91e63;
+    }
+
+    /* Carrito */
+    #carrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      width: 320px;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 0 15px rgba(255, 64, 129, 0.7);
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+    }
+    #carrito h2 {
+      margin-top: 0;
+      color: #ff4081;
+      text-align: center;
+    }
+    .item-carrito {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 6px;
+    }
+    .item-carrito span {
+      flex: 1;
+    }
+    .item-carrito button {
+      background: none;
+      border: none;
+      color: #ff4081;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.1em;
+      padding: 0 5px;
+    }
+    #total {
+      font-weight: bold;
+      margin-top: 15px;
+      text-align: right;
+      color: #ff4081;
+      font-size: 1.2em;
+    }
+    #toggle-carrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff4081;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 0 10px #ff4081;
+      z-index: 1100;
+    }
+    #finalizar {
+      margin-top: 15px;
+      background-color: #ff4081;
+      border: none;
+      color: white;
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #finalizar:hover {
+      background-color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>LeaImports.Pna</h1>
+    <p>Estilo, calidad y tendencia en un solo lugar. Productos importados y accesorios que marcan la diferencia.</p>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section id="productos">
+    <h2>Nuestros Productos</h2>
+    <p>Ofrecemos una cuidada selección de productos importados, accesorios modernos y artículos únicos para cada estilo.</p>
+
+     <section class="productos"></section>
+     
+    <div class="productos">
+      <div class="producto" data-id="1" data-nombre="JBL GO 3" data-precio="45500">
+        <img src="https://assets.onecompiler.app/43j8aatue/43jbh6sn5/Imagen%20de%20WhatsApp%202025-05-16%20a%20las%2014.59.14_fa5138db.jpg" alt="Producto 1" />
+        <h3>JBL GO 3</h3>
+        <p>$45.500</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="producto" data-id="2" data-nombre="QUENCHER DEL GOAT" data-precio="40000">
+        <img src="https://assets.onecompiler.app/43j8aatue/43j8a9sww/Imagen%20de%20WhatsApp%202025-04-08%20a%20las%2016.47.04_ea81accd.jpg" alt="Producto 2" />
+        <h3>QUENCHER DEL GOAT</h3>
+        <p>$40.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+      <div class="producto" data-id="3" data-nombre="AIRPODS PRO DE 2GEN" data-precio="55000">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.45_de93150b.jpg" alt="Producto 3" style="width: 100%; border-radius: 8px;" />
+  </div>
+  <h3>AIRPODS PRO DE 2GEN</h3>
+  <p>$55.000</p>
+  <button>Agregar al carrito</button>
+</div>
+
+<script>
+  (function(){
+    const imagenes = [
+      "https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.45_de93150b.jpg",
+      "https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.46_c443bf6e.jpg",
+      "https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.46_d8400539.jpg"
+    ];
+    let index = 0;
+    const producto3 = document.querySelector('.producto[data-id="3"]');
+    const imagenPrincipal = producto3.querySelector('.imagen-principal');
+
+    function mostrarImagen(i) {
+      index = (i + imagenes.length) % imagenes.length;
+      imagenPrincipal.src = imagenes[index];
+    }
+
+    setInterval(() => {
+      mostrarImagen(index + 1);
+    }, 4000);
+
+    mostrarImagen(index);
+  })();
+</script>
+<div class="producto" data-id="4" data-nombre="MATE STANLEY 236 ml " data-precio="39000">
+        <img src="https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2021.01.14_3b7a0859.jpg" alt="Producto 2" />
+        <h3>MATE STANLEY 236 ml</h3>
+        <p>$39.000</p>
+        <button>Agregar al carrito</button>
+    </div>
+    <div class="producto" data-id="5" data-nombre="TERMO STANLEY DE 800ML" data-precio="51500">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8z4bnr/43jh7hz8w/Imagen%20de%20WhatsApp%202025-05-21%20a%20las%2010.06.57_4dd5f2bc.jpg" alt="Producto 3" style="width: 100%; border-radius: 8px;" />
+  </div>
+  <h3>TERMO STANLEY DE 800ML</h3>
+  <p>$51.500</p>
+  <button>Agregar al carrito</button>
+</div>
+<div class="producto" data-id="6" data-nombre="AIRPODS PRO DE 2GEN" data-precio="96000">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.45_de93150b.jpg" alt="Producto 3" style="width: 100%; border-radius: 8px;" />
+  </div>
+  <h3>AIRPODS PRO DE 2GEN</h3>
+  <p>$96.000</p>
+  <button>Agregar al carrito</button>
+</div>
+  </section>
+
+  <button id="toggle-carrito" title="Ver carrito 🛒">🛒</button>
+
+  <div id="carrito">
+    <h2>Tu carrito</h2>
+    <div id="items-carrito"></div>
+    <div id="total">Total: $0</div>
+    <a href="checkout.html"><button id="finalizar">Finalizar compra</button></a>
+  </div>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Querés hacer un pedido o tenés dudas? Escribinos directamente.</p>
+    <a class="boton" href="https://wa.me/5493434571408" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="boton" href="https://instagram.com/todoaccesorios.pna" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 LeaImports.Pna · Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    const carritoBtn = document.getElementById('toggle-carrito');
+    const carrito = document.getElementById('carrito');
+    const itemsCarrito = document.getElementById('items-carrito');
+    const totalCarrito = document.getElementById('total');
+    const finalizarBtn = document.getElementById('finalizar');
+
+    let carritoItems = [];
+
+    carritoBtn.addEventListener('click', () => {
+      carrito.style.display = carrito.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    function actualizarCarrito() {
+      itemsCarrito.innerHTML = '';
+      let total = 0;
+
+      carritoItems.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('item-carrito');
+        itemDiv.innerHTML = `
+          <span>${item.nombre} x${item.cantidad}</span>
+          <span>$${item.precio * item.cantidad}</span>
+          <button data-index="${index}" class="eliminar">×</button>
+        `;
+        itemsCarrito.appendChild(itemDiv);
+        total += item.precio * item.cantidad;
+      });
+
+      totalCarrito.textContent = `Total: $${total}`;
+
+      document.querySelectorAll('.eliminar').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const index = e.target.getAttribute('data-index');
+          carritoItems.splice(index, 1);
+          actualizarCarrito();
+        });
+      });
+    }
+
+    document.querySelectorAll('.producto button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const productoDiv = e.target.closest('.producto');
+        const id = productoDiv.getAttribute('data-id');
+        const nombre = productoDiv.getAttribute('data-nombre');
+        const precio = parseInt(productoDiv.getAttribute('data-precio'));
+
+        const itemExistente = carritoItems.find(item => item.id === id);
+
+        if (itemExistente) {
+          itemExistente.cantidad++;
+        } else {
+          carritoItems.push({ id, nombre, precio, cantidad: 1 });
+        }
+
+        actualizarCarrito();
+        carrito.style.display = 'flex';
+      });
+    });
+
+    finalizarBtn.addEventListener('click', () => {
+      if (carritoItems.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+      }
+
+      localStorage.setItem("carrito", JSON.stringify(carritoItems));
+      window.location.href = "checkout.html";
+    });
+  </script>
+
+</body>
+</html>
