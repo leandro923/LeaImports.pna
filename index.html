@@ -250,22 +250,44 @@
         <p>$39.000</p>
         <button>Agregar al carrito</button>
     </div>
-    <div class="producto" data-id="5" data-nombre="TERMO STANLEY DE 800ML" data-precio="51500">
+    <div class="producto" data-id="5" data-nombre="TERMO SYSTEM DE 800ML" data-precio="51500">
   <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
     <img class="imagen-principal" src="https://assets.onecompiler.app/43j8z4bnr/43jh7hz8w/Imagen%20de%20WhatsApp%202025-05-21%20a%20las%2010.06.57_4dd5f2bc.jpg" alt="Producto 3" style="width: 100%; border-radius: 8px;" />
   </div>
-  <h3>TERMO STANLEY DE 800ML</h3>
+  <h3>TERMO SYSTEM DE 800ML</h3>
   <p>$51.500</p>
   <button>Agregar al carrito</button>
 </div>
-<div class="producto" data-id="6" data-nombre="AIRPODS PRO DE 2GEN" data-precio="96000">
+<div class="producto" data-id="6" data-nombre="VASO CAFETERO VINTAGE" data-precio="35500">
   <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
     <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.45_de93150b.jpg" alt="Producto 3" style="width: 100%; border-radius: 8px;" />
   </div>
-  <h3>AIRPODS PRO DE 2GEN</h3>
-  <p>$96.000</p>
+  <h3>VASO CAFETERO VINTAGE</h3>
+  <p>$35.500</p>
   <button>Agregar al carrito</button>
 </div>
+<script>
+  (function(){
+    const imagenes = [
+      "https://assets.onecompiler.app/43j8z4bnr/43jh7hz8w/Imagen%20de%20WhatsApp%202025-05-22%20a%20las%2009.54.12_57d5ebcb.jpg",
+      "https://assets.onecompiler.app/43j8z4bnr/43jh7hz8w/Imagen%20de%20WhatsApp%202025-05-22%20a%20las%2009.54.13_221f39ef.jpg",
+    ];
+    let index = 0;
+    const producto3 = document.querySelector('.producto[data-id="6"]');
+    const imagenPrincipal = producto3.querySelector('.imagen-principal');
+
+    function mostrarImagen(i) {
+      index = (i + imagenes.length) % imagenes.length;
+      imagenPrincipal.src = imagenes[index];
+    }
+
+    setInterval(() => {
+      mostrarImagen(index + 1);
+    }, 4000);
+
+    mostrarImagen(index);
+  })();
+</script>
   </section>
 
   <button id="toggle-carrito" title="Ver carrito 🛒">🛒</button>
@@ -283,6 +305,58 @@
     <a class="boton" href="https://wa.me/5493434571408" target="_blank" rel="noopener noreferrer">WhatsApp</a>
     <a class="boton" href="https://instagram.com/todoaccesorios.pna" target="_blank" rel="noopener noreferrer">Instagram</a>
   </section>
+
+  <section style="
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  padding: 50px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+">
+  <h2 style="font-size: 28px; margin-bottom: 25px; color: #ff4081;">
+    🚚 Envíos a Todo el País y Múltiples Medios de Pago
+  </h2>
+
+  <!-- Envíos -->
+  <p style="font-size: 18px; margin-bottom: 20px;">
+    Trabajamos con <strong>Andreani</strong> y <strong>Correo Argentino</strong> para que tus productos lleguen donde estés.
+  </p>
+  <div style="margin-bottom: 40px;">
+    <img src="https://th.bing.com/th/id/R.4c4e663f98e9ae32f13928653779928c?rik=mWDzIoXG36GMzQ&pid=ImgRaw&r=0" alt="Andreani" style="height: 45px; margin: 0 15px;">
+    <img src="https://www.marefa.org/w/images/thumb/a/ad/Correo_Argentino_Logo.svg/1200px-Correo_Argentino_Logo.svg.png" alt="Correo Argentino" style="height: 45px; margin: 0 15px;">
+  </div>
+
+  <!-- Medios de Pago -->
+  <p style="font-size: 18px; margin-bottom: 20px;">
+    💳 Pagá como quieras </strong>
+  </p>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; align-items: center;">
+    <img src="https://logowik.com/content/uploads/images/visa-payment-card1873.jpg" alt="Visa" style="height: 40px;">
+    <img src="https://th.bing.com/th/id/R.3718889e70d3e722e1584f37a45bcc2c?rik=FvMm74nswJz89A&pid=ImgRaw&r=0" alt="MasterCard" style="height: 40px;">
+    <img src="https://noticiasconcursos.com.br/wp-content/uploads/2023/04/noticiasconcursos.com.br-mercado-pago-entenda-o-que-e-e-como-funciona-design-sem-nome-4.jpg" alt="Mercado Pago" style="height: 40px;">
+  </div>
+</section>
+
+<section style="background-color: #1c1c1c; color: #fff; padding: 50px 20px; font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; color: #ff4081; font-size: 28px; margin-bottom: 30px;">❓ Preguntas Frecuentes</h2>
+
+  <div style="max-width: 700px; margin: auto;">
+    <details style="margin-bottom: 20px; background-color: #2a2a2a; border-radius: 8px; padding: 15px;">
+      <summary style="cursor: pointer; font-size: 18px; font-weight: bold;">📦 ¿Cuánto tarda el envío?</summary>
+      <p style="margin-top: 10px; font-size: 16px;">Depende de tu ubicación. En promedio, los envíos llegan entre 2 y 5 días hábiles.</p>
+    </details>
+
+    <details style="margin-bottom: 20px; background-color: #2a2a2a; border-radius: 8px; padding: 15px;">
+      <summary style="cursor: pointer; font-size: 18px; font-weight: bold;">💵 ¿Puedo pagar en efectivo?</summary>
+      <p style="margin-top: 10px; font-size: 16px;">Sí. Podés pagar en efectivo acordando tu retiro con el vendedor.</p>
+    </details>
+
+    <details style="margin-bottom: 20px; background-color: #2a2a2a; border-radius: 8px; padding: 15px;">
+      <summary style="cursor: pointer; font-size: 18px; font-weight: bold;">🔁 ¿Qué pasa si el producto llega fallado?</summary>
+      <p style="margin-top: 10px; font-size: 16px;">Nos hacés saber dentro de las primeras 48hs y te lo cambiamos o devolvemos tu dinero sin problema.</p>
+    </details>
+  </div>
+</section>
 
   <footer>
     <p>&copy; 2025 LeaImports.Pna · Todos los derechos reservados</p>
@@ -361,3 +435,121 @@
 
 </body>
 </html>
+
+<!-- Botón flotante y chat -->
+<style>
+  #chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4081;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 10000;
+    transition: background-color 0.3s;
+  }
+  #chatbot-button:hover {
+    background-color: #ff4081;
+  }
+
+  #chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff4081;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: none;
+    flex-direction: column;
+    z-index: 9999;
+  }
+  #chatbot-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+  }
+  #chatbot-input {
+    border: none;
+    padding: 12px;
+    border-radius: 0 0 10px 10px;
+    outline: none;
+    font-size: 16px;
+    background: #2a2a2a;
+    color: white;
+  }
+</style>
+
+<div id="chatbot-button" title="Abrir chat">💬</div>
+
+<div id="chatbot-container" aria-hidden="true" role="dialog" aria-label="Chatbot de ayuda">
+  <div id="chatbot-messages"></div>
+  <input id="chatbot-input" type="text" placeholder="Escribí tu pregunta..." aria-label="Campo para ingresar pregunta"/>
+</div>
+
+<script>
+  const btn = document.getElementById('chatbot-button');
+  const container = document.getElementById('chatbot-container');
+  const messages = document.getElementById('chatbot-messages');
+  const input = document.getElementById('chatbot-input');
+
+  btn.addEventListener('click', () => {
+    const isOpen = container.style.display === 'flex';
+    container.style.display = isOpen ? 'none' : 'flex';
+    btn.textContent = isOpen ? '💬' : '✖️';
+    container.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+    if (!isOpen) {
+      input.focus();
+    }
+  });
+
+  function addMessage(text, fromUser = false) {
+    const msg = document.createElement('div');
+    msg.textContent = text;
+    msg.style.padding = '10px';
+    msg.style.margin = '8px 0';
+    msg.style.borderRadius = '8px';
+    msg.style.backgroundColor = fromUser ? '#4caf50' : '#333';
+    msg.style.color = fromUser ? '#fff' : '#ddd';
+    msg.style.alignSelf = fromUser ? 'flex-end' : 'flex-start';
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function respond(input) {
+    input = input.toLowerCase();
+    if (input.includes('envío') || input.includes('tiempo')) {
+      return 'Los envíos tardan entre 2 y 5 días hábiles según tu ubicación.';
+    }
+    if (input.includes('pago') && input.includes('puedo hacer mi pago en efectivo')) {
+      return 'Podés pagar en efectivo acordando envio con el vendedor o con Mercado Pago.';
+    }
+    if (input.includes('fallado') || input.includes('producto')) {
+      return 'Si el producto llega fallado, contactanos dentro de las 48hs a nuestro WhatsApp para cambio o devolución de dinero.';
+    }
+    return 'Perdón, no entendí. ¿Podés reformular tu pregunta?';
+  }
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && input.value.trim() !== '') {
+      addMessage(input.value, true);
+      const reply = respond(input.value);
+      setTimeout(() => addMessage(reply), 500);
+      input.value = '';
+    }
+  });
+
+  // Mensaje inicial
+  addMessage('Hola 👋, soy tu asistente virtual. Preguntame sobre envíos, pagos o devoluciones.');
+</script>
