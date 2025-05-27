@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resumen de Compra</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #ff4081;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #333;
+      text-align: left;
+    }
+    th {
+      background-color: #1f1f1f;
+    }
+    .total {
+      font-size: 1.2em;
+      margin-top: 20px;
+      text-align: right;
+    }
+    .metodos {
+      margin-top: 40px;
+    }
+    .metodos h2 {
+      color: #ff4081;
+    }
+    .metodos ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .metodos li {
+      background: #1f1f1f;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 6px;
+    }
+    .volver {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #ff4081;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Resumen de tu compra</h1>
+  <table id="tabla-carrito">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div class="total" id="total"></div>
+
+  <div class="metodos">
+    <h2>Opciones de Pago</h2>
+    <ul>
+      <li>✔ Mercado Pago</li>
+      <li>✔ Tarjetas de crédito y débito</li>
+      <li>✔ Transferencia bancaria</li>
+    </ul>
+  </div>
+
+  <a class="volver" href="index.html">Volver a la tienda</a>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const tbody = document.querySelector("tbody");
+      const totalDiv = document.getElementById("total");
+      let total = 0;
+
+      carrito.forEach(producto => {
+        const subtotal = producto.precio * producto.cantidad;
+        total += subtotal;
+
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td>${producto.nombre}</td>
+          <td>${producto.cantidad}</td>
+          <td>$${producto.precio}</td>
+          <td>$${subtotal}</td>
+        `;
+        tbody.appendChild(fila);
+      });
+
+      totalDiv.textContent = `Total a pagar: $${total}`;
+    });
+  </script>
+</body>
+</html>
+
+

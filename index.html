@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LeaImports.Pna</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #ff4081;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+    nav a {
+      color: #ff4081;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2em;
+      color: #ff4081;
+      margin-bottom: 20px;
+    }
+    section p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #ddd;
+    }
+    footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #888;
+    }
+    a.boton {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background-color: #ff4081;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    a.boton:hover {
+      background-color: #e91e63;
+    }
+
+    /* Productos */
+    .productos {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .producto {
+      background: #1f1f1f;
+      padding: 15px;
+      border-radius: 8px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+    }
+    .producto img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .producto button {
+      background-color: #ff4081;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .producto button:hover {
+      background-color: #e91e63;
+    }
+
+    /* Carrito */
+    #carrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      width: 320px;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 0 15px rgba(255, 64, 129, 0.7);
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+    }
+    #carrito h2 {
+      margin-top: 0;
+      color: #ff4081;
+      text-align: center;
+    }
+    .item-carrito {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 6px;
+    }
+    .item-carrito span {
+      flex: 1;
+    }
+    .item-carrito button {
+      background: none;
+      border: none;
+      color: #ff4081;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.1em;
+      padding: 0 5px;
+    }
+    #total {
+      font-weight: bold;
+      margin-top: 15px;
+      text-align: right;
+      color: #ff4081;
+      font-size: 1.2em;
+    }
+    #toggle-carrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #ff4081;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 0 10px #ff4081;
+      z-index: 1100;
+    }
+    #finalizar {
+      margin-top: 15px;
+      background-color: #ff4081;
+      border: none;
+      color: white;
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #finalizar:hover {
+      background-color: ccccccccccccccccccccccccccccccccccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>LeaImports.Pna</h1>
+    <p>Estilo, calidad y tendencia en un solo lugar. Productos importados y accesorios que marcan la diferencia.</p>
+    <nav>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="mayoristas.html">Mayorista</a>
+
+    </nav>
+  </header>
+
+  <section id="productos">
+    <h2>Nuestros Productos</h2>
+    <p>Ofrecemos una cuidada selección de productos importados, accesorios modernos y artículos únicos para cada estilo.</p>
+
+     <section class="productos"></section>
+     
+    <div class="productos">
+      <div class="producto" data-id="1" data-nombre="JBL GO 3" data-precio="48000">
+        <img src="https://assets.onecompiler.app/43j8aatue/43jbh6sn5/Imagen%20de%20WhatsApp%202025-05-16%20a%20las%2014.59.14_fa5138db.jpg" alt="Producto 1" />
+        <h3>JBL GO 3</h3>
+        <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$48.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+      
+      <div class="producto" data-id="2" data-nombre="QUENCHER DEL GOAT" data-precio="40000">
+        <img src="https://assets.onecompiler.app/43j8aatue/43j8a9sww/Imagen%20de%20WhatsApp%202025-04-08%20a%20las%2016.47.04_ea81accd.jpg" alt="Producto 2" />
+        <h3>QUENCHER DEL GOAT</h3>
+        <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$40.000</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-id="3" data-nombre="AIRPODS PRO DE 2GEN" data-precio="35500">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.45_de93150b.jpg" alt="Producto 3" style="width: 100%; border-radius: 8px;" />
+  </div>
+
+  <h3>AIRPODS PRO DE 2GEN</h3>
+  <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$35.500</p>
+  <button>Agregar al carrito</button>
+</div>
+
+<script>
+  (function(){
+    const imagenes = [
+      "https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.45_de93150b.jpg",
+      "https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.46_c443bf6e.jpg",
+      "https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.46_d8400539.jpg"
+    ];
+    let index = 0;
+    const producto3 = document.querySelector('.producto[data-id="3"]');
+    const imagenPrincipal = producto3.querySelector('.imagen-principal');
+
+    function mostrarImagen(i) {
+      index = (i + imagenes.length) % imagenes.length;
+      imagenPrincipal.src = imagenes[index];
+    }
+
+    setInterval(() => {
+      mostrarImagen(index + 1);
+    }, 4000);
+
+    mostrarImagen(index);
+  })();
+</script>
+<div class="producto" data-id="4" data-nombre="MATE STANLEY 236 ml " data-precio="39900">
+        <img src="https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2021.01.14_3b7a0859.jpg" alt="Producto 4" />
+        <h3>MATE STANLEY 236 ml</h3>
+       <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$39.900</p>
+        <button>Agregar al carrito</button>
+    </div>
+
+    <div class="producto" data-id="5" data-nombre="TERMO SYSTEM DE 800ML" data-precio="43000">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8z4bnr/43jh7hz8w/Imagen%20de%20WhatsApp%202025-05-21%20a%20las%2010.06.57_4dd5f2bc.jpg" alt="Producto 5" style="width: 100%; border-radius: 8px;" />
+  </div>
+
+  <h3>TERMO SYSTEM DE 800ML</h3>
+  <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$43.000</p>
+  <button>Agregar al carrito</button>
+</div>
+
+<div class="producto" data-id="6" data-nombre="VASO CAFETERO VINTAGE" data-precio="25000">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jc4qd76/Imagen%20de%20WhatsApp%202025-05-20%20a%20las%2020.30.45_de93150b.jpg" alt="Producto 6" style="width: 100%; border-radius: 8px;" />
+  </div>
+  <h3>VASO CAFETERO VINTAGE</h3>
+
+  <!-- Precios -->
+  <p style="margin: 0; color: #FFFF; text-decoration: line-through;">$35.500</p>
+  <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$25.000</p>
+
+  <button style="margin-top: 10px;">Agregar al carrito</button>
+</div>
+
+<script>
+  (function(){
+    const imagenes = [
+      "https://assets.onecompiler.app/43j8z4bnr/43jh7hz8w/Imagen%20de%20WhatsApp%202025-05-22%20a%20las%2009.54.12_57d5ebcb.jpg",
+      "https://assets.onecompiler.app/43j8z4bnr/43jh7hz8w/Imagen%20de%20WhatsApp%202025-05-22%20a%20las%2009.54.13_221f39ef.jpg",
+    ];
+    let index = 0;
+    const producto3 = document.querySelector('.producto[data-id="6"]');
+    const imagenPrincipal = producto3.querySelector('.imagen-principal');
+
+    function mostrarImagen(i) {
+      index = (i + imagenes.length) % imagenes.length;
+      imagenPrincipal.src = imagenes[index];
+    }
+
+    setInterval(() => {
+      mostrarImagen(index + 1);
+    }, 4000);
+
+    mostrarImagen(index);
+  })();
+</script>
+
+<div class="producto" data-id="7" data-nombre="VASO STANLEY CAFETERO" data-precio="40000">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8z4bnr/43jjcbvep/Imagen%20de%20WhatsApp%202025-05-22%20a%20las%2010.04.12_9fc9b1af.jpg" alt="Producto 7" style="width: 100%; border-radius: 8px;" />
+  </div>
+
+  <h3>VASO STANLEY CAFETERO</h3>
+ <!-- Precios -->
+  <p style="margin: 0; color: #FFFF; text-decoration: line-through;">$58.000</p>
+  <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$40.000</p>
+
+  <button style="margin-top: 10px;">Agregar al carrito</button>
+</div>
+
+<div class="producto" data-id="8" data-nombre="BATTERY PACK" data-precio="35000">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jx8m4fb/Imagen%20de%20WhatsApp%202025-05-26%20a%20las%2019.59.54_f50e8f33.jpg" alt="Producto 8" style="width: 100%; border-radius: 8px;" />
+  </div>
+  <h3>BATTERY PACK</h3>
+  <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$35.000</p>
+
+  <button style="margin-top: 10px;">Agregar al carrito</button>
+</div>
+
+<div class="producto" data-id="9" data-nombre="AIRPODS MAX" data-precio="45000">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jx8m4fb/Imagen%20de%20WhatsApp%202025-05-26%20a%20las%2020.00.01_af99e6da.jpg" alt="Producto 9" style="width: 100%; border-radius: 8px;" />
+  </div>
+  <h3>AIRPODS MAX</h3>
+  <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$45.000</p>
+
+  <button style="margin-top: 10px;">Agregar al carrito</button>
+</div>
+
+<div class="producto" data-id="10" data-nombre="COMBO CABLE + CABEZAL" data-precio="31900">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jx8m4fb/Captura%20de%20pantalla%202025-05-26%20204845.png" alt="Producto 10" style="width: 100%; border-radius: 8px;" />
+  </div>
+  <h3>COMBO CABLE + CABEZAL</h3>
+  <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$31.900</p>
+
+  <button style="margin-top: 10px;">Agregar al carrito</button>
+</div>
+
+<div class="producto" data-id="11" data-nombre="JBL FLIP 6" data-precio="34900">
+  <div class="slider-imagenes" style="position: relative; max-width: 300px; margin-bottom: 10px;">
+    <img class="imagen-principal" src="https://assets.onecompiler.app/43j8aatue/43jx8m4fb/Captura%20de%20pantalla%202025-05-26%20205838.png" alt="Producto 11" style="width: 100%; border-radius: 8px;" />
+  </div>
+  <h3>JBL FLIP 6</h3>
+  <p style="margin: 0; color: #ff4081; font-size: 1.4em; font-weight: bold;">$34.900</p>
+
+  <button style="margin-top: 10px;">Agregar al carrito</button>
+</div>
+  </section>
+
+  <button id="toggle-carrito" title="Ver carrito 🛒">🛒</button>
+
+  <div id="carrito">
+    <h2>Tu carrito</h2>
+    <div id="items-carrito"></div>
+    <div id="total">Total: $0</div>
+    <a href="checkout.html"><button id="finalizar">Finalizar compra</button></a>
+  </div>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Querés hacer un pedido o tenés dudas? Escribinos directamente.</p>
+    <a class="boton" href="https://wa.me/5493434571408" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="boton" href="https://instagram.com/todoaccesorios.pna" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </section>
+
+  <section style="
+  background-color: #1c1c1c;
+  color: #f1f1f1;
+  padding: 50px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+">
+  <h2 style="font-size: 28px; margin-bottom: 25px; color: #ff4081;">
+    🚚 Envíos a Todo el País y Múltiples Medios de Pago
+  </h2>
+
+  <!-- Envíos -->
+  <p style="font-size: 18px; margin-bottom: 20px;">
+    Trabajamos con <strong>Andreani</strong> y <strong>Correo Argentino</strong> para que tus productos lleguen donde estés.
+  </p>
+  <div style="margin-bottom: 40px;">
+    <img src="https://th.bing.com/th/id/R.4c4e663f98e9ae32f13928653779928c?rik=mWDzIoXG36GMzQ&pid=ImgRaw&r=0" alt="Andreani" style="height: 45px; margin: 0 15px;">
+    <img src="https://www.marefa.org/w/images/thumb/a/ad/Correo_Argentino_Logo.svg/1200px-Correo_Argentino_Logo.svg.png" alt="Correo Argentino" style="height: 45px; margin: 0 15px;">
+  </div>
+
+  <!-- Medios de Pago -->
+  <p style="font-size: 18px; margin-bottom: 20px;">
+    💳 Pagá como quieras </strong>
+  </p>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; align-items: center;">
+    <img src="https://logowik.com/content/uploads/images/visa-payment-card1873.jpg" alt="Visa" style="height: 40px;">
+    <img src="https://th.bing.com/th/id/R.3718889e70d3e722e1584f37a45bcc2c?rik=FvMm74nswJz89A&pid=ImgRaw&r=0" alt="MasterCard" style="height: 40px;">
+    <img src="https://noticiasconcursos.com.br/wp-content/uploads/2023/04/noticiasconcursos.com.br-mercado-pago-entenda-o-que-e-e-como-funciona-design-sem-nome-4.jpg" alt="Mercado Pago" style="height: 40px;">
+  </div>
+</section>
+
+<section style="background-color: #1c1c1c; color: #fff; padding: 50px 20px; font-family: 'Segoe UI', sans-serif;">
+  <h2 style="text-align: center; color: #ff4081; font-size: 28px; margin-bottom: 30px;">❓ Preguntas Frecuentes</h2>
+
+  <div style="max-width: 700px; margin: auto;">
+    <details style="margin-bottom: 20px; background-color: #2a2a2a; border-radius: 8px; padding: 15px;">
+      <summary style="cursor: pointer; font-size: 18px; font-weight: bold;">📦 ¿Cuánto tarda el envío?</summary>
+      <p style="margin-top: 10px; font-size: 16px;">Depende de tu ubicación. En promedio, los envíos llegan entre 2 y 5 días hábiles.</p>
+    </details>
+
+    <details style="margin-bottom: 20px; background-color: #2a2a2a; border-radius: 8px; padding: 15px;">
+      <summary style="cursor: pointer; font-size: 18px; font-weight: bold;">💵 ¿Puedo pagar en efectivo?</summary>
+      <p style="margin-top: 10px; font-size: 16px;">Sí. Podés pagar en efectivo acordando tu retiro con el vendedor.</p>
+    </details>
+
+    <details style="margin-bottom: 20px; background-color: #2a2a2a; border-radius: 8px; padding: 15px;">
+      <summary style="cursor: pointer; font-size: 18px; font-weight: bold;">🔁 ¿Qué pasa si el producto llega fallado?</summary>
+      <p style="margin-top: 10px; font-size: 16px;">Nos hacés saber dentro de las primeras 48hs y te lo cambiamos o devolvemos tu dinero sin problema.</p>
+    </details>
+  </div>
+</section>
+
+  <footer>
+    <p>&copy; 2025 LeaImports.Pna · Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    const carritoBtn = document.getElementById('toggle-carrito');
+    const carrito = document.getElementById('carrito');
+    const itemsCarrito = document.getElementById('items-carrito');
+    const totalCarrito = document.getElementById('total');
+    const finalizarBtn = document.getElementById('finalizar');
+
+    let carritoItems = [];
+
+    carritoBtn.addEventListener('click', () => {
+      carrito.style.display = carrito.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    function actualizarCarrito() {
+      itemsCarrito.innerHTML = '';
+      let total = 0;
+
+      carritoItems.forEach((item, index) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('item-carrito');
+        itemDiv.innerHTML = `
+          <span>${item.nombre} x${item.cantidad}</span>
+          <span>$${item.precio * item.cantidad}</span>
+          <button data-index="${index}" class="eliminar">×</button>
+        `;
+        itemsCarrito.appendChild(itemDiv);
+        total += item.precio * item.cantidad;
+      });
+
+      totalCarrito.textContent = `Total: $${total}`;
+
+      document.querySelectorAll('.eliminar').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const index = e.target.getAttribute('data-index');
+          carritoItems.splice(index, 1);
+          actualizarCarrito();
+        });
+      });
+    }
+
+    document.querySelectorAll('.producto button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const productoDiv = e.target.closest('.producto');
+        const id = productoDiv.getAttribute('data-id');
+        const nombre = productoDiv.getAttribute('data-nombre');
+        const precio = parseInt(productoDiv.getAttribute('data-precio'));
+
+        const itemExistente = carritoItems.find(item => item.id === id);
+
+        if (itemExistente) {
+          itemExistente.cantidad++;
+        } else {
+          carritoItems.push({ id, nombre, precio, cantidad: 1 });
+        }
+
+        actualizarCarrito();
+        carrito.style.display = 'flex';
+      });
+    });
+
+    finalizarBtn.addEventListener('click', () => {
+      if (carritoItems.length === 0) {
+        alert('El carrito está vacío.');
+        return;
+      }
+
+      localStorage.setItem("carrito", JSON.stringify(carritoItems));
+      window.location.href = "checkout.html";
+    });
+  </script>
+
+</body>
+</html>
+
+<!-- Botón flotante y chat -->
+<style>
+  #chatbot-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4081;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 10000;
+    transition: background-color 0.3s;
+  }
+  #chatbot-button:hover {
+    background-color: #ff4081;
+  }
+
+  #chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    background: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff4081;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    display: none;
+    flex-direction: column;
+    z-index: 9999;
+  }
+  #chatbot-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+  }
+  #chatbot-input {
+    border: none;
+    padding: 12px;
+    border-radius: 0 0 10px 10px;
+    outline: none;
+    font-size: 16px;
+    background: #2a2a2a;
+    color: white;
+  }
+</style>
+
+<div id="chatbot-button" title="Abrir chat">💬</div>
+
+<div id="chatbot-container" aria-hidden="true" role="dialog" aria-label="Chatbot de ayuda">
+  <div id="chatbot-messages"></div>
+  <input id="chatbot-input" type="text" placeholder="Escribí tu pregunta..." aria-label="Campo para ingresar pregunta"/>
+</div>
+
+<script>
+  const btn = document.getElementById('chatbot-button');
+  const container = document.getElementById('chatbot-container');
+  const messages = document.getElementById('chatbot-messages');
+  const input = document.getElementById('chatbot-input');
+
+  btn.addEventListener('click', () => {
+    const isOpen = container.style.display === 'flex';
+    container.style.display = isOpen ? 'none' : 'flex';
+    btn.textContent = isOpen ? '💬' : '✖️';
+    container.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+    if (!isOpen) {
+      input.focus();
+    }
+  });
+
+  function addMessage(text, fromUser = false) {
+    const msg = document.createElement('div');
+    msg.textContent = text;
+    msg.style.padding = '10px';
+    msg.style.margin = '8px 0';
+    msg.style.borderRadius = '8px';
+    msg.style.backgroundColor = fromUser ? '#4caf50' : '#333';
+    msg.style.color = fromUser ? '#fff' : '#ddd';
+    msg.style.alignSelf = fromUser ? 'flex-end' : 'flex-start';
+    messages.appendChild(msg);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function respond(input) {
+    input = input.toLowerCase();
+    if (input.includes('envío') || input.includes('tiempo')) {
+      return 'Los envíos tardan entre 2 y 5 días hábiles según tu ubicación.';
+    }
+    if (input.includes('pago') && input.includes('puedo hacer mi pago en efectivo')) {
+      return 'Podés pagar en efectivo acordando envio con el vendedor o con Mercado Pago.';
+    }
+    if (input.includes('fallado') || input.includes('producto')) {
+      return 'Si el producto llega fallado, contactanos dentro de las 48hs a nuestro WhatsApp para cambio o devolución de dinero.';
+    }
+    return 'Perdón, no entendí. ¿Podés reformular tu pregunta?';
+  }
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && input.value.trim() !== '') {
+      addMessage(input.value, true);
+      const reply = respond(input.value);
+      setTimeout(() => addMessage(reply), 500);
+      input.value = '';
+    }
+  });
+
+  // Mensaje inicial
+  addMessage('Hola 👋, soy tu asistente virtual. Preguntame sobre envíos, pagos o devoluciones.');
+</script>
+
+
