@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hacer Pedido - Cookiies.lovee</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fcc9d0;
+      color: #a7120e;
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: #a7120e;
+      padding: 15px 30px;
+      text-align: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+      max-width: 500px;
+      margin: 40px auto;
+      background-color: #a7120e;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      color: white;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    input[type="text"],
+    select,
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    input[type="number"] {
+    -mozappearance: textfield; /* Quitar flechas en Firefox */
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none; /* Quitar flechas en Chrome */
+      margin: 0;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #a7120e;
+      border: none;
+      padding: 15px;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background-color: #fcc9d0;
+      color: #a7120e;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #a7120e;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<header>Hacer Pedido</header>
+
+<main>
+  <form id="pedidoForm">
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+
+    <label for="producto">Producto</label>
+    <select id="producto" name="producto" required>
+      <option value="" disabled selected>Seleccioná un producto</option>
+      <option value="Galleta Corazón">Galleta Corazón - $800</option>
+      <option value="Galleta Personalizada">Galleta Personalizada - $1.200</option>
+      <option value="Caja Surtida (6u)">Caja Surtida (6u) - $3.500</option>
+    </select>
+
+    <label for="cantidad">Cantidad</label>
+    <input type="number" id="cantidad" name="cantidad" min="1" value="1" required />
+
+    <button type="submit">Enviar pedido por WhatsApp</button>
+  </form>
+</main>
+
+<footer>© 2025 Cookiies.lovee</footer>
+
+<script>
+  const form = document.getElementById('pedidoForm');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById('nombre').value.trim();
+    const producto = document.getElementById('producto').value;
+    const cantidad = document.getElementById('cantidad').value;
+
+    if (!nombre || !producto || !cantidad || cantidad <= 0) {
+      alert('Por favor completá todos los campos correctamente.');
+      return;
+    }
+
+    const mensaje = 
+      `Hola! Quisiera hacer un pedido:%0A` +
+      `*Nombre:* ${nombre}%0A` +
+      `*Producto:* ${producto}%0A` +
+      `*Cantidad:* ${cantidad}`;
+
+    // Cambiá este número por el WhatsApp del negocio con código país, sin espacios ni signos.
+    const numeroWhatsApp = '+54 9 11 6720-3462';
+
+    const urlWhatsApp = `https://wa.me/${5491167203462}?text=${mensaje}`;
+
+    window.open(urlWhatsApp, '_blank');
+  });
+</script>
+
+</body>
+</html>

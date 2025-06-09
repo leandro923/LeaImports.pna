@@ -1,0 +1,111 @@
+/* Paleta: rosa claro, rojo y blanco */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fcc9d0;
+  color: #a7120e;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo img {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #a7120e;
+  font-weight: bold;
+}
+
+main {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.bienvenida h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.bienvenida p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.boton {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #a7120e;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #850f0b;
+}
+
+footer {
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 2px solid #a7120e;
+}
+
+.redes a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #a7120e;
+}
+
+
+@font-face {
+  font-family: 'Giaza';
+  src: url('./fonts/Giaza.otf') format('opentype'); /* O .ttf y 'truetype' si fuera necesario */
+}
+
+.titulo-con-giaza {
+  font-family: 'Giaza', serif;
+  font-size: 36px;
+}
+
+body {
+  font-family: 'DM Serif Display', serif;
+}
+
+
+.container{
+  max-width: 120rem;
+  margin: 0 auto;
+ } 
+
+ .hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  }
+
+
+
+
+
+  

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cookiies.lovee</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fcc9d0;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #a7120e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 80px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 50px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #ffffff;
+      color: #a7120e;
+    }
+
+    
+    body {
+      background-color: #a7120e;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #111;
+    }
+
+    .productos {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .productos h2 {
+      color: #fff;
+      font-size: 3rem;
+      margin-bottom: 40px;
+    }
+
+    .grid-productos {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    }
+
+    .producto {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      color: #a7120e;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s;
+    }
+
+    .producto:hover {
+      transform: scale(1.03);
+    }
+
+    .producto img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      border: 3px solid #000000;
+    }
+
+    .producto h3 {
+      font-size: 1.5rem;
+      margin: 10px 0 5px;
+      color: #333333;
+    }
+
+    .producto p {
+      font-size: 0.99rem;
+      margin-bottom: 10px;
+    }
+
+    .producto span {
+      display: inline-block;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #000000;
+      padding: 6px 12px;
+      border-radius: 8px;
+      vertical-align:middle;
+    }
+
+    .btn-agregar {
+      background-color: #f7d1d5;
+      color: black;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn-agregar:hover {
+      background-color: #d4b8bb;
+    }
+
+
+
+/* WhatsApp boton */
+    #WhatsAppBoton {
+      position: fixed;
+      top: 200px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 65%;
+      box-shadow: 0 4px 10px #111(0,0,0,0.0);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    #WhatsAppBoton img {
+      width: 40px;
+      height: 40px;
+    }
+
+
+    /* Carrito boton */
+    #carritoBoton {
+      position: fixed;
+      top: 125px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px #111(0,0,0,0.0);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    #carritoBoton img {
+      width: 32px;
+      height: 32px;
+    }
+
+    #contadorCarrito {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: #fcc9d0;
+      color: #111;
+      border-radius: 50%;
+      padding: 3px 7px;
+      font-weight: 700;
+      font-size: 14px;
+      display: none;
+    }
+
+    /* Panel carrito */
+    #carritoPanel {
+      position: fixed;
+      top: 190px;
+      right: 20px;
+      width: 320px;
+      max-height: 480px;
+      background: #fcc9d0;
+      color: #111;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 20px #111(0,0,0,0.0);
+      overflow-y: auto;
+      display: none;
+      flex-direction: column;
+      z-index: 10000;
+    }
+
+    #carritoPanel h3 {
+      text-align: center;
+      margin-top: 0;
+      color: #111;
+    }
+
+    #listaCarrito {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 15px 0;
+      color: #111;
+    }
+
+    #listaCarrito li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    #listaCarrito button {
+      background: #fcc9d0;
+      color: #a7120e;
+      border: none;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 18px;
+      padding: 0;
+    }
+
+    #totalCarrito {
+      text-align: right;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    #btnHacerPedido {
+      background-color: #ffffff;
+      color: #a7120e;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    #btnHacerPedido:hover {
+      background-color: #f7d1d5;
+    }
+
+    
+
+    
+    .acordeon-bloque {
+  margin-bottom: 2rem;
+  border: 2px solid #fcc9d0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fcc9d0;
+}
+
+.acordeon-titulo {
+  
+  
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 1.2rem 2rem;
+  font-size: 1.7rem;
+  font-family: 'Averia Serif Libre', serif;
+  cursor: pointer;
+  color: #a7120e; /* 🎯 Color rojo oscuro que usás en tu sitio */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.acordeon-titulo {
+  color: #a7120e !important;
+}
+
+
+.flecha {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  transform: rotate(180deg); /* 🔼 Flecha hacia arriba por defecto (cerrado) */
+}
+
+.flecha.abierta {
+  transform: rotate(0deg);   /* 🔽 Flecha hacia abajo cuando está abierto */
+}
+
+.acordeon-contenido {
+  display: none;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+/* ✅ Sombra al abrir el bloque */
+.acordeon-contenido {
+  box-shadow: 0 10px 20px #000000;
+}
+
+
+  </style>
+
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://assets.onecompiler.app/43j8z4bnr/43m9gzhs4/LOGO%201.png" alt="Logo Cookiies.lovee" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    
+  </header>
+  <main>
+
+    <section class="productos">
+      <h2 style="font-family: 'Averia Serif Libre', serif;">Nuestras Cookies</h2>
+      <section style="background-color: #fcc9d0; padding: 20px; border-radius: 16px; margin: 40px auto; max-width: 1000px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+  <h2 style="color: #a7120e; font-family: 'Averia Serif Libre', serif; font-size: 1.6rem; margin-bottom: 15px;">
+    MÍNIMO 2 DÍA DE ANTICIPACIÓN PARA CADA PEDIDO<br>
+    <span style="font-size: 1rem; display: block; margin-top: 5px;"><b>(IGUALMENTE SIEMPRE CONSULTAR SI HAY STOCK)</b></span>
+  </h2>
+  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+  </div>
+</section>
+
+
+
+<div class="acordeon-bloque">
+  <button class="acordeon-titulo">
+   <h2 style="color: #a7120e; font-family: 'Averia Serif Libre', serif;">Clásicas</h2>
+    <span class="flecha">▼</span>
+  </button>
+
+  <div class="acordeon-contenido">
+    <div class="grid-productos">
+      <div class="producto">
+        <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Clasicas Choco" />
+        <h3>Cookie Clásicas de Choco</h3>
+        <p>Cookie con chocolate.</p>
+        <span>$1.400</span>
+         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="1" data-nombre="Clasicas Choco" data-precio="1400">Agregar</button>
+      </div>
+      <div class="producto">
+        <img src="https://assets.onecompiler.app/43j8z4bnr/43kkg5446/ROCKLETCOOKIE.png" alt="Clasicas Choco Blanco" />
+        <h3>Cookie Clásicas de Choco Blanco</h3>
+        <p>Cookie con mucho choco blanco.</p>
+        <span>$1.400</span>
+         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="2" data-nombre="Clasicas Choco Blanco" data-precio="1400">Agregar</button>
+      </div>
+      <div class="producto">
+        <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Limón" />
+        <h3>Cookie de Limón</h3>
+        <p>Cookie con limón.</p>
+        <span>$1.200</span>
+         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="3" data-nombre="Cookie de Limón" data-precio="1200">Agregar</button>
+      </div>
+      <div class="producto">
+        <img src="https://assets.onecompiler.app/43j8z4bnr/43kkg5446/OREO.png" alt="Cookie de Oreo" />
+        <h3>Cookie de Oreo</h3>
+        <p>Cookie con mucha Oreo.</p>
+        <span>$1.400</span>
+         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="4" data-nombre="Cookie de Oreo" data-precio="1400">Agregar</button>
+      </div>
+      <div class="producto">
+        <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Chocolinas" />
+        <h3>Cookie de Chocolinas</h3>
+        <p>Cookie con muchas chocolinas.</p>
+        <span>$1.300</span>
+         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="5" data-nombre="Cookie de Chocolinas" data-precio="1300">Agregar</button>
+      </div>
+      <div class="producto">
+        <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20202505.png" alt="Cookie de Doble Choco" />
+        <h3>Cookie de Doble Choco</h3>
+        <p>Cookie con mucho mucho choco.</p>
+        <span>$1.600</span>
+         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="6" data-nombre="Cookie de Doble Choco" data-precio="1600">Agregar</button>
+      </div>
+      <div class="producto">
+        <img src="https://assets.onecompiler.app/43j8z4bnr/43kkawjhv/ROCKLET+.png" alt="Cookie de Rocklets" />
+        <h3>Cookie de Rocklets</h3>
+        <p>Cookie con rocklets.</p>
+        <span>$1.400</span>
+         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="7" data-nombre="Cookie de Rocklets" data-precio="1400">Agregar</button>
+      </div>
+      <div class="producto">
+        <img src="https://assets.onecompiler.app/43j8z4bnr/43kkawjhv/RED%20VELVET.png" alt="Cookie de Red Velvet" />
+        <h3>Cookie de Red Velvet</h3>
+        <p>Cookie con red velvet.</p>
+        <span>$1.500</span>
+         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="8" data-nombre="Cookie de Red Velvet" data-precio="1500">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="acordeon-bloque">
+  <button class="acordeon-titulo">
+   <h2 style="color: #a7120e; font-family: 'Averia Serif Libre', serif;">Rellenas</h2>
+    <span class="flecha">▼</span>
+  </button>
+      <div class="acordeon-contenido">
+    <div class="grid-productos">
+      <div class="producto">
+          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Membrillo" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Membrillo</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucho membrillo.</p>
+          <span>$1.400</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="9" data-nombre="Cookie de Membrillo" data-precio="1400">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Dulce de Leche" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Dulce de Leche</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucho mucho dulce de leche.</p>
+          <span>$1.400</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="11" data-nombre="Cookie de Dulce de Leche" data-precio="1400">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="https://assets.onecompiler.app/43j8z4bnr/43kkg5446/OREO%20DENTRO.png" alt="Cookie con Oreo Dentro" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie con Oreo Dentro</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucha oreo dentro.</p>
+          <span>$1.400</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="12" data-nombre="Cookie con Oreo Dentro" data-precio="1400">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="https://assets.onecompiler.app/43j8z4bnr/43kkg5446/Logotipo%20Emprendimiento%20Minimalista%20Blanco.png" alt="Cookie de Nutella" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Nutella</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucha mucha nutella.</p>
+          <span>$1.800</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="13" data-nombre="Cookie de Nutella" data-precio="1800">Agregar</button>
+       </div>
+    </div>
+  </div>
+</div>
+
+
+
+     <div class="acordeon-bloque">
+  <button class="acordeon-titulo">
+   <h2 style="color: #a7120e; font-family: 'Averia Serif Libre', serif;">Especiales</h2>
+    <span class="flecha">▼</span>
+  </button>
+      <div class="acordeon-contenido">
+    <div class="grid-productos">
+      <div class="producto">
+          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Nutella y Choco" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Nutella y Choco</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucha nutella y mucho chocolate.</p>
+          <span>$2.100</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="14" data-nombre="Cookie de Nutella y Choco" data-precio="2100">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Bon o Bon" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Bon o Bon</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucho bon o bon.</p>
+          <span>$2.100</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="15" data-nombre="Cookie de Bon o Bon" data-precio="2100">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203202.png" alt="Cookie de Malvadisco y Choco" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Malvadisco y Choco</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucho mucho malvadisco y chocolate.</p>
+          <span>$1.900</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="16" data-nombre="Cookie de Malvadisco y Choco" data-precio="1900">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Franui/Frutillas Congeladas" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Franui/Frutillas Congeladas</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucho franui/frutillas congeladas.</p>
+          <span>$2.300</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="17" data-nombre="Cookie de Franui/Frutillas Congeladas" data-precio="2300">Agregar</button>
+        </div>
+        <div class="producto">
+          <img src="https://assets.onecompiler.app/43j8z4bnr/43kkawjhv/KOOKIE%20KIND.png" alt="Cookie de Kinder" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Kinder</h3>
+          <p style="font-family: 'roboto', roboto;">Cookie con mucho mucho Kinder.</p>
+          <span>$2.400</span>
+           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="18" data-nombre="Cookie de Kinder" data-precio="2400">Agregar</button>
+        </div>
+        </div>
+        </div>
+    </section>
+  </main>
+
+
+  <!-- Icono WhatsApp -->
+  <div id="WhatsAppBoton">
+    <a href="https://wa.me/5491167203462" title="WhatsApp"><img src="https://assets.onecompiler.app/43j8z4bnr/43m9b33ds/whatsapp-logo-1%20(1).png" alt="WhatsApp" /></a>
+  </div>
+  
+  <!-- Icono carrito -->
+  <div id="carritoBoton">
+    <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/57576376.png" alt="Carrito" />
+    <span id="contadorCarrito">0</span>
+  </div>
+
+  <!-- Panel carrito -->
+  <div id="carritoPanel">
+    <h3>Tu carrito</h3>
+    <ul id="listaCarrito"></ul>
+    <div id="totalCarrito"></div>
+    <button id="btnHacerPedido">Hacer pedido</button>
+  </div>
+
+  <script>
+    const carrito = {};
+    const btnHacerPedido = document.getElementById("btnHacerPedido");
+    const carritoBoton = document.getElementById("carritoBoton");
+    const carritoPanel = document.getElementById("carritoPanel");
+    const listaCarrito = document.getElementById("listaCarrito");
+    const contadorCarrito = document.getElementById("contadorCarrito");
+
+    function actualizarCarrito() {
+      listaCarrito.innerHTML = "";
+      let total = 0;
+      let cantidadTotal = 0;
+
+      for (const id in carrito) {
+        const item = carrito[id];
+        total += item.precio * item.cantidad;
+        cantidadTotal += item.cantidad;
+
+        const li = document.createElement("li");
+        li.textContent = `x${item.cantidad} ${item.nombre} - $${(item.precio * item.cantidad).toFixed(2)}`;
+
+        const btnEliminar = document.createElement("button");
+        btnEliminar.textContent = "X";
+        btnEliminar.addEventListener("click", () => {
+          eliminarDelCarrito(id);
+        });
+
+        li.appendChild(btnEliminar);
+        listaCarrito.appendChild(li);
+      }
+
+      contadorCarrito.textContent = cantidadTotal;
+      contadorCarrito.style.display = cantidadTotal > 0 ? "inline-block" : "none";
+      document.getElementById("totalCarrito").textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function eliminarDelCarrito(id) {
+      delete carrito[id];
+      actualizarCarrito();
+    }
+
+    document.querySelectorAll(".btn-agregar").forEach(boton => {
+      boton.addEventListener("click", () => {
+        const id = boton.dataset.id;
+        const nombre = boton.dataset.nombre;
+        const precio = parseFloat(boton.dataset.precio);
+
+        if (carrito[id]) {
+          carrito[id].cantidad++;
+        } else {
+          carrito[id] = { nombre, precio, cantidad: 1 };
+        }
+        actualizarCarrito();
+      });
+    });
+
+    carritoBoton.addEventListener("click", () => {
+      if (carritoPanel.style.display === "flex") {
+        carritoPanel.style.display = "none";
+      } else {
+        carritoPanel.style.display = "flex";
+      }
+    });
+
+    btnHacerPedido.addEventListener("click", () => {
+      if (Object.keys(carrito).length === 0) {
+        alert("El carrito está vacío");
+        return;
+      }
+
+      let mensaje = "¡Hola! Quiero hacer un pedido:%0A";
+
+      for (const id in carrito) {
+        const item = carrito[id];
+        mensaje += `x${item.cantidad} ${item.nombre} - $${(item.precio * item.cantidad).toFixed(2)}%0A`;
+      }
+
+      let total = Object.values(carrito).reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+      mensaje += `%0ATotal: $${total.toFixed(2)}`;
+
+      const telefono = "5491167203462"; // Cambiar por tu número sin espacios ni signos
+
+      window.open(`https://wa.me/${telefono}?text=${mensaje}`, "_blank");
+    });
+
+    actualizarCarrito();
+  </script>
+
+  <script>
+  document.querySelectorAll('.acordeon-titulo').forEach(boton => {
+    boton.addEventListener('click', () => {
+      const contenido = boton.nextElementSibling;
+      const flecha = boton.querySelector('.flecha');
+
+      const abierto = contenido.style.display === 'block';
+
+      // Cierra todos los bloques (si querés que sea tipo acordeón)
+      document.querySelectorAll('.acordeon-contenido').forEach(c => c.style.display = 'none');
+      document.querySelectorAll('.flecha').forEach(f => f.classList.remove('abierta'));
+
+      // Abre este si estaba cerrado
+      if (!abierto) {
+        contenido.style.display = 'block';
+        flecha.classList.add('abierta');
+      }
+    });
+  });
+</script>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+  
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://vonvfsixywdamfsuofal.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+  async function mostrarStock() {
+    const { data, error } = await supabase
+      .from('productos')
+      .select('id, stock');
+
+    if (error) {
+      console.error('Error al traer los datos de Supabase:', error);
+      return;
+    }
+
+    document.querySelectorAll('.btn-agregar').forEach(btn => {
+      const id = parseInt(btn.getAttribute('data-id'));
+      const producto = data.find(p => p.id === id);
+      if (producto) {
+        const divProducto = btn.closest('.producto');
+        const pStock = divProducto.querySelector('.stock');
+        pStock.textContent = `Stock: ${producto.stock}`;
+      }
+    });
+  }
+
+  mostrarStock();
+</script>
+
+
+</body>
+</html>
