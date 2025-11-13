@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  
   <title>Cookiies.lovee</title>
 
-  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -19,6 +19,7 @@
       padding: 0;
       background-color: #fcc9d0;
       color: #ffffff;
+      overflow-x: hidden;
     }
 
     header {
@@ -26,7 +27,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
+      padding: 15px 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
@@ -34,13 +35,13 @@
     }
 
     .logo img {
-      height: 80px;
+      height: 70px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 50px;
+      gap: 30px;
       margin: 0;
       padding: 0;
     }
@@ -59,29 +60,40 @@
       color: #a7120e;
     }
 
+    /* --- BOTÓN HAMBURGUESA --- */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      width: 28px;
+      height: 24px;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
     .hero {
       background-color: #a7120e;
       text-align: center;
-      padding: 100px 20px;
+      padding: 80px 20px;
     }
 
     .hero-texto h1 {
-      font-size: 3rem;
+      font-size: 2.4rem;
       color: #ffffff;
       margin-bottom: 15px;
-
-    }
-
-    .hero-texto p {
-      font-size: 1.2rem;
-      color: #ffe6e6;
-      margin-bottom: 30px;
     }
 
     .boton {
       background-color: #ffffff;
       color: #a7120e;
-      padding: 14px 28px;
+      padding: 12px 24px;
       font-weight: bold;
       text-decoration: none;
       border-radius: 12px;
@@ -95,29 +107,47 @@
     }
 
     main {
-      padding: 60px 20px;
-      background-color: #fcc9d0;
+      padding: 40px 20px;
       text-align: center;
     }
 
-    .presentacion {
+    .presentacion, .quienes-somos, .Entregas {
       max-width: 700px;
-      margin: auto;
+      margin: 40px auto 0;
       background-color: #a7120e;
-      padding: 30px;
+      padding: 25px;
       border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    .presentacion h2 {
-      font-size: 2.5rem;
+    .presentacion h2, .quienes-somos h2, .Entregas h2 {
+      font-size: 1.8rem;
       margin-bottom: 10px;
       color: #ffffff;
     }
 
-    .presentacion p {
-      font-size: 1.1rem;
+    .presentacion p, .quienes-somos p, .Entregas p {
+      font-size: 1rem;
       color: #ffe6e6;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 50px auto;
+      max-width: 1000px;
+    }
+
+    .post {
+      background-color: #ffffff;
+      border: 3px solid #000000;
+      border-radius: 12px;
+      padding: 15px;
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     footer {
@@ -148,101 +178,147 @@
     .redes a:hover {
       color: #fcc9d0;
     }
-    .quienes-somos {
-  max-width: 700px;
-  margin: 40px auto 0;
-  background-color: #a7120e;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
 
-.quienes-somos h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
+    /* --- COOKIE MASCOTA --- */
+    .cookie-mascota {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 80px;
+      height: 80px;
+      background-image: url('cookietierna.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 9999;
+      transition: transform 0.3s ease;
+      animation: saltito 2s infinite;
+      cursor: pointer;
+    }
 
-.quienes-somos p {
-  font-size: 1.1rem;
-  color: #ffe6e6;
-}
+    .cookie-mascota:hover {
+      transform: scale(1.1);
+    }
 
-    .Entregas {
-  max-width: 700px;
-  margin: 40px auto 0;
-  background-color: #a7120e;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-.Entregas h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
+    @keyframes saltito {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
 
+    .cookie-chat-bubble {
+      position: fixed;
+      bottom: 110px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #a7120e;
+      padding: 12px 18px;
+      border-radius: 16px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      max-width: 250px;
+      font-size: 14px;
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
+    /* --- AVISO TEMPORAL --- */
+    #tempNoticeModal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 99999;
+    }
 
+    #tempNoticeModal .card {
+      background: #a7120e;
+      padding: 28px;
+      max-width: 90%;
+      border-radius: 14px;
+      box-shadow: 0 6px 30px rgba(255, 255, 255, 0.3);
+      text-align: center;
+      color: #fff;
+    }
 
+    #tempNoticeModal h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
 
-  form {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 20px;
-  }
+    #tempNoticeModal p {
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
 
-  input[type="text"] {
-    padding: 8px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    width: 200px;
-  }
+    #tempNoticeModal .btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #fcc9d0;
+      color: #a7120e;
+      font-weight: bold;
+      font-size: 15px;
+    }
 
-  button {
-    background-color: #f08a5d;
-    border: none;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-  }
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #a7120e;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 10px;
+      }
 
-  button:hover {
-    background-color: #b83b5e;
-  }
+      nav ul.active {
+        display: flex;
+      }
 
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-</style>
+      .menu-toggle {
+        display: flex;
+      }
 
+      .hero-texto h1 {
+        font-size: 1.8rem;
+      }
 
+      .presentacion, .quienes-somos, .Entregas {
+        padding: 20px;
+      }
+
+      .cookie-mascota {
+        width: 65px;
+        height: 65px;
+      }
+    }
   </style>
-  
-
-
 </head>
 
 <body>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
   <header>
     <div class="logo">
-      <img src="https://assets.onecompiler.app/43j8z4bnr/43m9gzhs4/LOGO%201.png" alt="Logo Cookiies.lovee" />
+      <img src="LOGO1.png" alt="Logo Cookiies.lovee" />
     </div>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </div>
+
     <nav>
-      <ul>
+      <ul id="menu">
         <li><a href="index.html">Inicio</a></li>
         <li><a href="productos.html">Productos</a></li>
         <li><a href="contacto.html">Contacto</a></li>
@@ -252,43 +328,38 @@
 
   <section class="hero">
     <div class="hero-texto">
-      <h1 style="font-family: 'Averia Serif Libre', serif;">¡Bienvenid@ a Cookies love!</h1>
-
-
-      <p style="font-family: 'roboto', roboto;">COOKIES IRRESISTIBLES, HECHAS CON AMOR ❤️</p>
+      <h1>¡Bienvenid@ a Cookies Love!</h1>
       <a href="productos.html" class="boton">Ver Productos</a>
     </div>
   </section>
 
   <main>
     <section class="presentacion">
-      <h2 style="font-family: 'Averia Serif Libre', serif;">¿Quién soy?</h2>
-      <p style="font-family: 'roboto', roboto;">Mi nombre es Magalí Cueli, desde hace años fui probando distintas técnicas y opciones de cookies. Despues de un Timpo me decidí a abrir mi emprendimiento.</p>
-       </p style="font-family: 'roboto', roboto;"><b>¡Es algo que amo hacer y espero les guste!</b></p>
+      <h2>¿Quién soy?</h2>
+      <p>Mi nombre es Magalí Cueli, desde hace años fui probando distintas técnicas y opciones de cookies. Después de un tiempo me decidí a abrir mi emprendimiento.</p>
+      <p><b>¡Es algo que amo hacer y espero les guste!</b></p>
     </section>
+
     <section class="quienes-somos">
-  <h2 style="font-family: 'Averia Serif Libre', serif;">¿De dónde somos?</h2>
-  <p style="font-family: 'roboto', roboto;">Somos de Mariano Acosta Merlo.</p>
- </section>
-<section class="Entregas">
-      <h2 style="font-family: 'Averia Serif Libre', serif;">Entregas</h2>
-      <p style="font-family: 'roboto', roboto;">📦Hacemos entregas en Marco Paz y Mariano Acosta</p>
-       </p style="font-family: 'roboto', roboto;"> ✨Tenemos pick up en el local "Las Bartolas" (Homero 3388)</p> 
-        </p style="font-family: 'roboto', roboto;"> <b>¡Si sos de otro lugar podemos llegar a coordinar tu entrega, consúltanos!</b> </p>
+      <h2>¿De dónde somos?</h2>
+      <p>Somos de Mariano Acosta, Merlo.</p>
     </section>
-</section>
+
+    <section class="Entregas">
+      <h2>Entregas</h2>
+      <p>Hacemos entregas en Marcos Paz y Mariano Acosta. Tenemos pick up en el local “Las Bartolas” (Homero 3388). <br><b>¡Si sos de otro lugar podemos coordinar tu entrega, consúltanos!</b></p>
+    </section>
   </main>
 
+  <div class="container">
+    <div class="post">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DJDMivSvQlD/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+    </div>
+    <div class="post">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DJsX2mGvYXc/" data-instgrm-version="14"></blockquote>
+    </div>
+  </div>
 
-  <form action="/buscar" method="get">
-  <label for="busqueda" class="visually-hidden">Buscar cookies</label>
-  <input type="text" id="busqueda" name="q" placeholder="Buscar cookies..." />
-  <button type="submit">
-    🔍
-  </button>
-</form>
-
-  
   <footer>
     <p>&copy; 2025 Cookiies.lovee</p>
     <div class="redes">
@@ -296,21 +367,60 @@
       <a href="https://wa.me/543434571408">WhatsApp</a>
     </div>
   </footer>
-  
+
+  <div class="cookie-mascota"></div>
+  <div class="cookie-chat-bubble" id="chat-bubble">¡Bienvenid@ a Cookies Love!</div>
+
+  <!-- AVISO TEMPORAL -->
+  <div id="tempNoticeModal" role="dialog" aria-modal="true">
+    <div class="card">
+      <h3>No estamos tomando pedidos</h3>
+      <p>Por el momento estamos cerrados para nuevos pedidos. ¡Volvemos el 1 de Diciembre!</p>
+      <button class="btn" id="tempNoticeClose">Entendido</button>
+    </div>
+  </div>
+
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    // Instagram
+    window.addEventListener("load", () => {
+      if (window.instgrm) window.instgrm.Embeds.process();
+    });
+
+    // Chat de cookie
+    const bubble = document.getElementById("chat-bubble");
+    const mensajes = [
+      "¡Bienvenid@ a Cookies Love!",
+      "Con tu compra mayor a $10.000 te llevas tus cookies en cajita",
+      "¡Recordá mencionarnos en tu historia cuando retires tus cookies!",
+      "¿Cuál es tu favorita?",
+      "Seguinos en Instagram 💕"
+    ];
+    let i = 0;
+
+    function mostrarMensaje() {
+      if (i >= mensajes.length) return;
+      bubble.textContent = mensajes[i];
+      bubble.style.display = "block";
+      setTimeout(() => {
+        bubble.style.display = "none";
+        i++;
+        setTimeout(mostrarMensaje, 8000);
+      }, 6000);
+    }
+    mostrarMensaje();
+
+    // Modal aviso temporal
+    document.getElementById('tempNoticeClose').addEventListener('click', () => {
+      document.getElementById('tempNoticeModal').style.display = 'none';
+    });
+
+    // Menú hamburguesa
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  

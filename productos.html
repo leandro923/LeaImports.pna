@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cookiies.lovee</title>
@@ -329,35 +331,198 @@ body {
 }
 
 
+
+
+    /* MASCOTA COOKIE */
+    .cookie-mascota {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 90px;
+      height: 90px;
+      background-image: url('cookietierna.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 9999;
+      transition: transform 0.3s ease;
+      animation: saltito 2s infinite;
+      cursor: pointer;
+    }
+
+    .cookie-mascota:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes saltito {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+
+
+    .cookie-chat-bubble {
+  position: fixed;
+  bottom: 130px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #a7120e;
+  padding: 12px 18px;
+  border-radius: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  max-width: 250px;
+  font-size: 14px;
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+.chat-burbuja {
+  background-color: white;
+  color: #a7120e;
+  padding: 12px 16px;
+  border-radius: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 14px;
+  max-width: 250px;
+  transition: opacity 0.5s ease;
+  z-index: 10000;
+}
+
+
+
+    footer {
+      background-color: #fcc9d0;
+      text-align: center;
+      padding: 30px;
+      border-top: 3px solid #ffffff;
+    }
+
+    footer p {
+      margin: 0;
+      font-weight: bold;
+      color: #a7120e;
+    }
+
+    .redes {
+      margin-top: 10px;
+    }
+
+    .redes a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #a7120e;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .redes a:hover {
+      color: #880e0a;
+    }
+
+
+    
+
+
+    /* --- RESPONSIVE --- */
+    .menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #a7120e;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero-texto h1 {
+        font-size: 1.8rem;
+      }
+
+      .presentacion, .quienes-somos, .Entregas {
+        padding: 20px;
+      }
+
+      .cookie-mascota {
+        width: 65px;
+        height: 65px;
+      }
+    }
+
   </style>
 
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="https://assets.onecompiler.app/43j8z4bnr/43m9gzhs4/LOGO%201.png" alt="Logo Cookiies.lovee" />
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-    
-  </header>
+  <div class="logo">
+    <img src="LOGO1.png" alt="Logo Cookiies.lovee" />
+  </div>
+
+  <!-- Botón hamburguesa -->
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav>
+    <ul id="nav-list">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html">Productos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
   <main>
 
     <section class="productos">
       <h2 style="font-family: 'Averia Serif Libre', serif;">Nuestras Cookies</h2>
       <section style="background-color: #fcc9d0; padding: 20px; border-radius: 16px; margin: 40px auto; max-width: 1000px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
   <h2 style="color: #a7120e; font-family: 'Averia Serif Libre', serif; font-size: 1.6rem; margin-bottom: 15px;">
-    MÍNIMO 2 DÍA DE ANTICIPACIÓN PARA CADA PEDIDO<br>
+    MÍNIMO 2 DÍAS DE ANTICIPACIÓN PARA CADA PEDIDO<br>
     <span style="font-size: 1rem; display: block; margin-top: 5px;"><b>(IGUALMENTE SIEMPRE CONSULTAR SI HAY STOCK)</b></span>
   </h2>
   <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
   </div>
 </section>
+
 
 
 
@@ -369,68 +534,52 @@ body {
 
   <div class="acordeon-contenido">
     <div class="grid-productos">
-      <div class="producto">
-        <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Clasicas Choco" />
-        <h3>Cookie Clásicas de Choco</h3>
-        <p>Cookie con chocolate.</p>
-        <span>$1.400</span>
-         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+      <div class="producto" id="clasica-choco">
+        <img src="clasicachoco.jpg" alt="Clasicas Choco" />
+        <h3>Clásica Choco</h3>
+        <p>Masa de vainilla con chispas y pedacitos de chocolate.</p>
+        <span class="precio" data-id="1">$1.400</span>
+         <p class="stock"data-id="1"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
         <button class="btn-agregar" data-id="1" data-nombre="Clasicas Choco" data-precio="1400">Agregar</button>
       </div>
       <div class="producto">
-        <img src="https://assets.onecompiler.app/43j8z4bnr/43kkg5446/ROCKLETCOOKIE.png" alt="Clasicas Choco Blanco" />
-        <h3>Cookie Clásicas de Choco Blanco</h3>
-        <p>Cookie con mucho choco blanco.</p>
-        <span>$1.400</span>
-         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <img src="Clasicachocoblanco.jpg" alt="Clasicas Choco Blanco" />
+        <h3>Clásica Choco Blanco</h3>
+        <p>Masa de vainilla con choco blanco.</p>
+        <span class="precio" data-id="2">$1.400</span>
+         <p class="stock"data-id="2"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
         <button class="btn-agregar" data-id="2" data-nombre="Clasicas Choco Blanco" data-precio="1400">Agregar</button>
       </div>
       <div class="producto">
-        <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Limón" />
-        <h3>Cookie de Limón</h3>
-        <p>Cookie con limón.</p>
-        <span>$1.200</span>
-         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
-        <button class="btn-agregar" data-id="3" data-nombre="Cookie de Limón" data-precio="1200">Agregar</button>
-      </div>
-      <div class="producto">
-        <img src="https://assets.onecompiler.app/43j8z4bnr/43kkg5446/OREO.png" alt="Cookie de Oreo" />
-        <h3>Cookie de Oreo</h3>
-        <p>Cookie con mucha Oreo.</p>
-        <span>$1.400</span>
-         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <img src="oreo.jpg" alt="Cookie de Oreo" />
+        <h3>Oreo</h3>
+        <p>Masa de vainilla con chocolate negro y blanco, con oreo triturada.</p>
+        <span class="precio" data-id="4">$1.400</span>
+         <p class="stock"data-id="4"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
         <button class="btn-agregar" data-id="4" data-nombre="Cookie de Oreo" data-precio="1400">Agregar</button>
       </div>
       <div class="producto">
-        <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Chocolinas" />
-        <h3>Cookie de Chocolinas</h3>
-        <p>Cookie con muchas chocolinas.</p>
-        <span>$1.300</span>
-         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
-        <button class="btn-agregar" data-id="5" data-nombre="Cookie de Chocolinas" data-precio="1300">Agregar</button>
+        <img src="Doblechoco.jpg" alt="Cookie de Doble Choco" />
+        <h3>Doble Choco</h3>
+        <p>Masa de chocolate y chispas de chocolate negro.</p>
+        <span class="precio" data-id="6">$1.600</span>
+         <p class="stock"data-id="6"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <button class="btn-agregar" data-id="6" data-nombre="Doble Choco" data-precio="1600">Agregar</button>
       </div>
       <div class="producto">
-        <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20202505.png" alt="Cookie de Doble Choco" />
-        <h3>Cookie de Doble Choco</h3>
-        <p>Cookie con mucho mucho choco.</p>
-        <span>$1.600</span>
-         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
-        <button class="btn-agregar" data-id="6" data-nombre="Cookie de Doble Choco" data-precio="1600">Agregar</button>
-      </div>
-      <div class="producto">
-        <img src="https://assets.onecompiler.app/43j8z4bnr/43kkawjhv/ROCKLET+.png" alt="Cookie de Rocklets" />
-        <h3>Cookie de Rocklets</h3>
-        <p>Cookie con rocklets.</p>
-        <span>$1.400</span>
-         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <img src="Rocklets.jpg" alt="Cookie de Rocklets" />
+        <h3>Rocklets</h3>
+        <p>Masa de vainilla con rocklets y chispas de chocolate.</p>
+        <span class="precio" data-id="7">$1.400</span>
+         <p class="stock"data-id="7"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
         <button class="btn-agregar" data-id="7" data-nombre="Cookie de Rocklets" data-precio="1400">Agregar</button>
       </div>
       <div class="producto">
-        <img src="https://assets.onecompiler.app/43j8z4bnr/43kkawjhv/RED%20VELVET.png" alt="Cookie de Red Velvet" />
-        <h3>Cookie de Red Velvet</h3>
-        <p>Cookie con red velvet.</p>
-        <span>$1.500</span>
-         <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+        <img src="Redvelvet.jpg" alt="Cookie de Red Velvet" />
+        <h3>Red Velvet</h3>
+        <p>Masa de red velvet, con pedacitos y chispas de choco blanco.</p>
+        <span class="precio" data-id="8">$1.500</span>
+         <p class="stock"data-id="8"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
         <button class="btn-agregar" data-id="8" data-nombre="Cookie de Red Velvet" data-precio="1500">Agregar</button>
       </div>
     </div>
@@ -445,35 +594,35 @@ body {
       <div class="acordeon-contenido">
     <div class="grid-productos">
       <div class="producto">
-          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Membrillo" />
-          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Membrillo</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucho membrillo.</p>
-          <span>$1.400</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <img src="membrillo.jpg" alt="Cookie de Membrillo" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Membrillo</h3>
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla rellena de membrillo.</p>
+          <span class="precio" data-id="9">$1.400</span>
+           <p class="stock"data-id="9"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
           <button class="btn-agregar" data-id="9" data-nombre="Cookie de Membrillo" data-precio="1400">Agregar</button>
         </div>
         <div class="producto">
-          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Dulce de Leche" />
-          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Dulce de Leche</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucho mucho dulce de leche.</p>
-          <span>$1.400</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <img src="dulcedeleche.jpg" alt="Cookie de Dulce de Leche" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Dulce de Leche</h3>
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla, rellena de dulce de leche.</p>
+         <span class="precio" data-id="11">$1.400</span>
+           <p class="stock"data-id="11"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
           <button class="btn-agregar" data-id="11" data-nombre="Cookie de Dulce de Leche" data-precio="1400">Agregar</button>
         </div>
         <div class="producto">
-          <img src="https://assets.onecompiler.app/43j8z4bnr/43kkg5446/OREO%20DENTRO.png" alt="Cookie con Oreo Dentro" />
-          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie con Oreo Dentro</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucha oreo dentro.</p>
-          <span>$1.400</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <img src="OreoDentro.jpg" alt="Cookie con Oreo Dentro" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Oreo Dentro</h3>
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla con una oreo por dentro</p>
+          <span class="precio" data-id="12">$1.400</span>
+           <p class="stock"data-id="12"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
           <button class="btn-agregar" data-id="12" data-nombre="Cookie con Oreo Dentro" data-precio="1400">Agregar</button>
         </div>
         <div class="producto">
-          <img src="https://assets.onecompiler.app/43j8z4bnr/43kkg5446/Logotipo%20Emprendimiento%20Minimalista%20Blanco.png" alt="Cookie de Nutella" />
-          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Nutella</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucha mucha nutella.</p>
-          <span>$1.800</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <img src="nutella.jpg" alt="Cookie de Nutella" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Nutella</h3>
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla, rellena de nutella.</p>
+         <span class="precio" data-id="13">$1.800</span>
+           <p class="stock"data-id="13"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
           <button class="btn-agregar" data-id="13" data-nombre="Cookie de Nutella" data-precio="1800">Agregar</button>
        </div>
     </div>
@@ -490,59 +639,63 @@ body {
       <div class="acordeon-contenido">
     <div class="grid-productos">
       <div class="producto">
-          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Nutella y Choco" />
-          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Nutella y Choco</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucha nutella y mucho chocolate.</p>
-          <span>$2.100</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <img src="Nutellaychoco.jpg" alt="Cookie de Nutella y Choco" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Nutella y Choco</h3>
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla con pedacitos de chocolate, rellena de nutella.</p>
+          <span class="precio" data-id="14">$2.100</span>
+           <p class="stock"data-id="14"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
           <button class="btn-agregar" data-id="14" data-nombre="Cookie de Nutella y Choco" data-precio="2100">Agregar</button>
         </div>
         <div class="producto">
-          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Bon o Bon" />
-          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Bon o Bon</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucho bon o bon.</p>
-          <span>$2.100</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <img src="BonoBon.jpg" alt="Cookie de Bon o Bon" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Bon o Bon</h3>
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla con chispas blancas, rellenas de un Bon o Bon.</p>
+        <span class="precio" data-id="15">$2.100</span>
+           <p class="stock"data-id="15"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
           <button class="btn-agregar" data-id="15" data-nombre="Cookie de Bon o Bon" data-precio="2100">Agregar</button>
         </div>
         <div class="producto">
-          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203202.png" alt="Cookie de Malvadisco y Choco" />
-          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Malvadisco y Choco</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucho mucho malvadisco y chocolate.</p>
-          <span>$1.900</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
-          <button class="btn-agregar" data-id="16" data-nombre="Cookie de Malvadisco y Choco" data-precio="1900">Agregar</button>
+          <img src="Malvaviscoychoco.jpg" alt="Cookie de Malvadisco y Choco" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Malvavisco y choco</h3>
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla y chipas negras, rellenas de malvavisco y chocolate.</p>
+          <span class="precio" data-id="16">$1.900</span>
+           <p class="stock"data-id="16"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <button class="btn-agregar" data-id="16" data-nombre="Cookie de Malvavisco y Choco" data-precio="1900">Agregar</button>
         </div>
         <div class="producto">
-          <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/Captura%20de%20pantalla%202025-05-29%20203140.png" alt="Cookie de Franui/Frutillas Congeladas" />
-          <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Franui/Frutillas Congeladas</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucho franui/frutillas congeladas.</p>
-          <span>$2.300</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <img src="franui.jpg" alt="Cookie de Franui/Frutillas Congeladas" />
+          <h3 style="font-family: 'Averia Serif Libre', serif;">Franui/Frutillas Congeladas</h3>
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla con choco negro y blanco, rellena y decorada con franui.</p>
+          <span class="precio" data-id="17">$2.300</span>
+           <p class="stock" data-id="17"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
           <button class="btn-agregar" data-id="17" data-nombre="Cookie de Franui/Frutillas Congeladas" data-precio="2300">Agregar</button>
         </div>
         <div class="producto">
-          <img src="https://assets.onecompiler.app/43j8z4bnr/43kkawjhv/KOOKIE%20KIND.png" alt="Cookie de Kinder" />
+          <img src="kinder.jpg" alt="Cookie de Kinder" />
           <h3 style="font-family: 'Averia Serif Libre', serif;">Cookie de Kinder</h3>
-          <p style="font-family: 'roboto', roboto;">Cookie con mucho mucho Kinder.</p>
-          <span>$2.400</span>
-           <p class="stock"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
+          <p style="font-family: 'roboto', roboto;">Masa de vainilla con choco negro y blanco. Rellena de kinder, nutella y chocolate. Decorada con chocolate semi amargo por arriba y una barrita kinder en el centro.</p>
+          <span class="precio" data-id="18">$2.400</span>
+           <p class="stock"data-id="18"></p> <!-- 👈 Acá aparecerá "Stock: X" -->
           <button class="btn-agregar" data-id="18" data-nombre="Cookie de Kinder" data-precio="2400">Agregar</button>
         </div>
         </div>
         </div>
     </section>
+
+    
   </main>
 
 
+  
+
   <!-- Icono WhatsApp -->
   <div id="WhatsAppBoton">
-    <a href="https://wa.me/5491167203462" title="WhatsApp"><img src="https://assets.onecompiler.app/43j8z4bnr/43m9b33ds/whatsapp-logo-1%20(1).png" alt="WhatsApp" /></a>
+    <a href="https://wa.me/5491167203462" title="WhatsApp"><img src="whats.webp" alt="WhatsApp" /></a>
   </div>
   
   <!-- Icono carrito -->
   <div id="carritoBoton">
-    <img src="https://assets.onecompiler.app/43k86yw95/43k86yyya/57576376.png" alt="Carrito" />
+    <img src="carrito.png" alt="Carrito" />
     <span id="contadorCarrito">0</span>
   </div>
 
@@ -661,42 +814,178 @@ body {
       }
     });
   });
+
+
+
+
 </script>
 
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+<script>
+ 
+  async function actualizarProductos() {
+    try {
+      const response = await fetch("https://sheetdb.io/api/v1/kh3et5drhwxp9"); // Cambiá por tu URL real
+      const productos = await response.json();
 
-  
-import { createClient } from '@supabase/supabase-js'
+      productos.forEach(prod => {
+        const precioElem = document.querySelector(`.precio[data-id="${prod.id}"]`);
+        const stockElem = document.querySelector(`.stock[data-id="${prod.id}"]`);
+        const btnAgregar = document.querySelector(`.btn-agregar[data-id="${prod.id}"]`);
 
-const supabaseUrl = 'https://vonvfsixywdamfsuofal.supabase.co'
-const supabaseKey = process.env.SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
-
-  async function mostrarStock() {
-    const { data, error } = await supabase
-      .from('productos')
-      .select('id, stock');
-
-    if (error) {
-      console.error('Error al traer los datos de Supabase:', error);
-      return;
+        if (precioElem) precioElem.textContent = `$${prod.precio}`;
+        if (stockElem) stockElem.textContent = `Stock: ${prod.stock}`;
+        if (btnAgregar) btnAgregar.setAttribute('data-precio', prod.precio);
+      });
+    } catch (error) {
+      console.error("Error al cargar los productos:", error);
     }
-
-    document.querySelectorAll('.btn-agregar').forEach(btn => {
-      const id = parseInt(btn.getAttribute('data-id'));
-      const producto = data.find(p => p.id === id);
-      if (producto) {
-        const divProducto = btn.closest('.producto');
-        const pStock = divProducto.querySelector('.stock');
-        pStock.textContent = `Stock: ${producto.stock}`;
-      }
-    });
   }
 
-  mostrarStock();
+  actualizarProductos();
 </script>
 
+<!-- MASCOTA COOKIE -->
+<div class="cookie-mascota" title="¡Hola, soy tu cookie amiga!"></div>
+
+<div class="cookie-chat-bubble" id="chat-bubble">
+  ¡Bienvenid@ a Cookies Love! 🍪
+</div>
+
+<!-- Scripts -->
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<script>
+  const bubble = document.getElementById("chat-bubble");
+
+  function mostrarMensajeCookie(texto) {
+    bubble.innerText = texto;
+    bubble.style.display = "block";
+    setTimeout(() => {
+      bubble.style.display = "none";
+    }, 6000);
+  }
+
+  // Mostrar mensajes al entrar
+  window.addEventListener("load", () => {
+    const mensajes = [
+      "Con tu compra mayor a $10.000 te llevas tus cookies en cajita",
+      "Recordá mencionarnos en tu historia cuando retires tus cookies",
+      
+    ];
+
+    let i = 0;
+    function mostrarSiguiente() {
+      if (i < mensajes.length) {
+        mostrarMensajeCookie(mensajes[i]);
+        i++;
+        setTimeout(mostrarSiguiente, 9000); // tiempo entre mensajes
+      }
+    }
+
+    mostrarSiguiente();
+  });
+
+  // Mostrar mensaje al agregar producto al carrito
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("btn-agregar")) {
+      mostrarMensajeCookie("¡Agregaste una cookie riquísima al carrito!");
+    }
+  });
+</script>
+
+
+
+  
+</script>
+
+
+</script>
+
+</script>
+
+<script>
+  // Obtener el parámetro "busqueda" de la URL
+  const params = new URLSearchParams(window.location.search);
+  const filtro = params.get('busqueda')?.toLowerCase() || '';
+
+  // Si hay filtro, aplicarlo
+  if (filtro) {
+    const productos = document.querySelectorAll('.producto');
+    productos.forEach(producto => {
+      const nombre = producto.querySelector('h3').textContent.toLowerCase();
+      const descripcion = producto.querySelector('p')?.textContent.toLowerCase() || '';
+      const coincide = nombre.includes(filtro) || descripcion.includes(filtro);
+      producto.style.display = coincide ? '' : 'none';
+    });
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const producto = document.querySelector(hash);
+      if (producto) {
+        // Si está en un acordeón cerrado, abrilo
+        const contenedor = producto.closest('.acordeon-contenido');
+        if (contenedor && contenedor.style.display === 'none') {
+          contenedor.style.display = 'block';
+        }
+
+        // Hacer scroll suave hacia el producto
+        setTimeout(() => {
+          producto.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    }
+  });
+
+
+  
+
+</script>
+
+  
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash;
+    if (hash) {
+      const producto = document.querySelector(hash);
+      if (producto) {
+        // Mostrar contenido si está en acordeón
+        const contenedor = producto.closest('.acordeon-contenido');
+        if (contenedor && contenedor.style.display === 'none') {
+          contenedor.style.display = 'block';
+        }
+
+        // Scroll hacia el producto
+        setTimeout(() => {
+          producto.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    }
+  });
+
+ // --- MENÚ HAMBURGUESA ---
+const menuToggle = document.getElementById("menu-toggle");
+const navList = document.getElementById("nav-list");
+
+menuToggle.addEventListener("click", () => {
+  navList.classList.toggle("active");
+});
+
+</script>
+
+
+<footer>
+    <p>&copy; 2025 Cookiies.lovee</p>
+    <div class="redes">
+      <a href="https://instagram.com/Cookiies.lovee">Instagram</a>
+      <a href="https://wa.me/543434571408">WhatsApp</a>
+      <a href="https://forms.gle/ZeRpw8yw6ZmgMMG39">Suscríbete</a>
+    </div>
+  </footer>
 
 </body>
 </html>
